@@ -1,0 +1,249 @@
+html {
+	min-height: 100%;
+	font-family: Verdana;
+	font-size: 10pt;
+}
+
+img {
+	border: none;	
+}
+
+body {
+	width: 100%; margin: 0; padding-bottom: 96px; padding-top: 48px;
+}
+
+.logocutout {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+}
+
+.topbar {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	background-color: #227;
+	height: 32px;
+	border-bottom: 1px solid #AAA;
+	box-shadow: 8px 8px 17px -6px #BBB;
+}
+
+.helparrow {
+	position: absolute;
+	right: 490px;
+	top: 34px;
+	z-index: 999;
+	background-image: url('../images/icons/arrow_up_small.png');
+	width: 16px;
+	height: 16px;
+	background-repeat: no-repeat;	
+}
+
+.topbutton {
+	display: inline-block;
+	text-align: center;
+	background-color: #227;
+	margin: 6px 4px 6px 4px;
+	padding: 2px 5px;
+	color: white;
+	border-radius: 4px;
+}
+
+.topbutton:hover {
+	background-color: #449;
+}
+
+.topbutton.highlight {
+	background-color: #44A;
+}
+
+.toptext {
+	display: inline-block;
+	padding-right: 16px;
+	color: white;
+	font-weight: bold;
+}
+
+.breaker {clear: both; height: 0px}
+
+.anchor {color: blue; text-decoration: underline; font-style: italic; cursor: pointer}
+
+div#workflowSteps {
+	background-image: url('../images/workflowline.png');
+	background-repeat: repeat-y;
+	background-position: 50% 0px;
+	margin-bottom: 300px;
+}
+
+div.stepstatus { text-align: left; background-color: #EEE; border: 1px solid #DDD; margin: 32px 0px 0px 0px; border-top-left-radius: 16px; border-bottom-right-radius: 16px; padding: 8px; width: 600px; position: relative; box-shadow: 8px 8px 17px -6px #DDD;}
+div.stepicon {line-height: 32px; background-repeat: no-repeat; background-position: 2px 50%; padding-left:48px; font-size: 13pt; font-weight: bold;}
+div.stepmessage {font-size: 10pt; padding-left: 48px}
+div.stepstatistic { font-size: 8pt;	padding-left: 3px; font-weight: bold }
+div.stepconsole {
+	text-align: right;
+	position: absolute;
+	right: 16px;
+	top: 16px;
+}
+div.bottombar {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	background-image: url('../images/bottombar.png');
+	width: 100%;
+	height: 64px;
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.bigbuttoninput {
+	line-height: 28px;
+	background-repeat: no-repeat;
+	background-position: 2px 50%;
+	padding: 0px 0px 0px 48px;
+	font-size: 13pt;
+	font-weight: bold;
+	font-family: Verdana;
+	border: none;
+	cursor: pointer;
+	background-image: url("../images/icons/check.png");
+	background-repeat: no-repeat; 
+	background-position: 2px 50%;
+	width: 100%;
+	height: 32px;
+}
+
+.stepicon.running { background-image: url("../images/icons/ajax-loader.gif"); }
+.stepicon.success { background-image: url("../images/icons/check.png"); }
+.stepicon.failed { background-image: url("../images/icons/close_delete_2.png"); }
+.stepicon.play { background-image: url("../images/icons/play.png"); }
+.stepicon.dead { background-image: url("../images/icons/dead.png"); }
+/*.stepicon.play:hover { background-image: url("../images/icons/playhi.png"); cursor: pointer; }*/
+.stepicon.skipped { background-image: url("../images/icons/skipped.png"); }
+.stepicon.paused { background-image: url("../images/icons/pause.png"); }
+.stepicon.successwitherrors { background-image: url("../images/icons/checkwitherror.png"); }
+
+.stepicon.search { background-image: url("../images/icons/detail.png"); }
+.stepicon.save { background-image: url("../images/icons/save_as.png"); }
+.stepicon.multi { background-image: url("../images/icons/network.png"); }
+
+.stepicon.restart { background-image: url("../images/icons/refresh.png"); cursor: pointer; }
+.stepicon.restart:hover { background-image: url("../images/icons/refreshhi.png"); cursor: pointer; }
+
+.stepicon.back { background-image: url("../images/icons/arrow_left.png"); cursor: pointer; }
+
+.stepicon.createtable { background-image: url("../images/icons/createtables.png")}
+.stepicon.newdatasource { background-image: url("../images/icons/newdatasource.png")}
+.stepicon.editdatasource { background-image: url("../images/icons/editdatasource.png")}
+
+div.progressbarborder {border: 1px solid; height: 14px}
+div.progressbar {margin: 1px; height: 12px;}
+div.progressbar.blue { background-image:url('../images/bluebar.png') }
+div.progressbar.green { background-image:url('../images/greenbar.png') }
+.progressbartable {font-size: 8pt; font-weight: bold;}
+
+div.bigbutton { background-color: #EEE; border: 1px solid #DDD; margin: 32px 16px; border-radius: 16px; padding: 8px; width: 200px; }
+
+div.bottombar div.bigbutton { background-color: #EEE; border: 1px solid #DDD; margin: 16px 16px; border-radius: 8px; padding: 4px; width: 200px; display: inline-block; }
+
+div#login { background-color: #EEE; border: 1px solid #DDD; margin: 32px 16px; border-radius: 16px; padding: 8px; width: 300px; }
+div.fheader { font-size: 16pt; font-weight: bold; }
+.loginLabel {line-height: 20px; font-weight: bold; }
+.loginfield {width: 100%; }
+.loginmessage {font-style: italic; }
+
+table.striped { font-size: 10pt;}
+table.striped th { font-weight: bold; background-color: #DDD }
+table.striped > tbody > tr > td { padding: 8px; background-color: #F0F0F0;text-align:left;}
+table.striped > tbody > tr > td.even { padding: 8px; background-color: #F8F8F8 }
+table.striped > tbody > tr > td.tableseparator { background: none }
+
+table.filepreviewtable { font-size: 8pt; }
+table.actiontable { font-size: 10pt; margin-left: 4px; margin-right: 48px; }
+table.actiontable td { padding: 4px; border-top: 1px solid #E8E8E8; }
+div.actiontitle { border-top: 1px solid #DDD; font-weight: bold; margin: 4px 48px 0px 0px; }
+
+div.linkageType { line-height: 20px }
+
+.errorbox {text-align: left; padding: 8px; background-color: #EEE; border: 1px solid #DDD}
+.errormessage {font-size: 7pt; background-color: #FCC; border: 1px solid #E31; border-radius: 3px; padding: 4px; padding-left: 24px; background-image: url('../images/icons/close_small.png'); background-position: 4px 50%; background-repeat: no-repeat;}
+.warningmessage {font-size: 7pt; background-color: #FEA; border: 1px solid #FB0; border-radius: 3px; padding: 4px; padding-left: 24px; background-image: url('../images/icons/attention_small.png'); background-position: 4px 50%; background-repeat: no-repeat;}
+.flashmessage {border: 1px solid #44F; background-color: #EEF; padding: 8px; }
+
+.tablecolumntype {font-style: italic; font-weight: normal;}
+
+div.logRadio {
+	padding: 8px 8px 8px 32px;
+	margin: 4px 12px;
+	border: 1px solid #DDD;
+	background-color: #EEE;
+	border-radius: 8px;
+	display: inline;
+	cursor: pointer;
+	background-repeat: no-repeat;
+	background-position: 8px 50%;
+}
+
+div.logRadio.selected {
+	background-color: #FFB;
+}
+
+div.logRadio.level2 {
+	background-image: url('../images/icons/computer_monitor_error_16.png');
+}
+
+div.logRadio.level1 {
+	background-image: url('../images/icons/computer_monitor_warning_16.png');
+}
+
+div.logRadio.level0 {
+	background-image: url('../images/icons/computer_monitor_16.png');
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a.step {
+	padding: 4px;
+	border: 1px solid #CCF;
+	margin: 4px;
+	border-radius: 4px;
+}
+
+span.currentStep {
+	padding: 4px;
+	border: 1px solid #CCF;
+	background-color: #DDF;
+	margin: 4px;
+	border-radius: 4px;
+}
+
+a.nextLink,a.prevLink {
+	padding: 4px;
+	border: 1px solid #CCF;
+	margin: 4px;
+	border-radius: 4px;
+}
+
+.noResultsMessage {
+	font-size: 12pt;
+	font-style: italic;
+	color: #CCC;
+}
+.texttiny {
+	font-size: 8pt;	
+}
+.selectWidth {
+	width: 370px; 
+}
+.inputWidth {
+	width: 100%;
+}
+
+.paginateButtons {
+	margin-top: 16px;
+}

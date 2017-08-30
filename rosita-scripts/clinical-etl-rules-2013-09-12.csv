@@ -1,0 +1,180 @@
+rule_order,rule_description,target_schema,target_table,target_column,map_type,map_order,source_schema,source_table,source_value
+1,raw.care_site to std.care_site,std,care_site,care_site_source_value,PRIMARY,1,raw,care_site,care_site.care_site_source_value
+1,raw.care_site to std.care_site,std,care_site,care_site_source_value,VALUE,2,,,care_site.care_site_source_value
+1,raw.care_site to std.care_site,std,care_site,x_data_source_type,VALUE,3,,,care_site.x_data_source_type
+1,raw.care_site to std.care_site,std,care_site,organization_source_value,VALUE,4,,,care_site.organization_source_value
+1,raw.care_site to std.care_site,std,care_site,place_of_service_source_value,VALUE,5,,,care_site.place_of_service_source_value
+1,raw.care_site to std.care_site,std,care_site,x_care_site_name,VALUE,6,,,care_site.x_care_site_name
+1,raw.care_site to std.care_site,std,care_site,care_site_address_1,VALUE,7,,,care_site.care_site_address_1
+1,raw.care_site to std.care_site,std,care_site,care_site_address_2,VALUE,8,,,care_site.care_site_address_2
+1,raw.care_site to std.care_site,std,care_site,care_site_city,VALUE,9,,,care_site.care_site_city
+1,raw.care_site to std.care_site,std,care_site,care_site_state,VALUE,10,,,care_site.care_site_state
+1,raw.care_site to std.care_site,std,care_site,care_site_zip,VALUE,11,,,care_site.care_site_zip
+1,raw.care_site to std.care_site,std,care_site,care_site_county,VALUE,12,,,care_site.care_site_county
+2,raw.cohort to std.cohort,std,cohort,cohort_source_identifier,PRIMARY,1,raw,cohort,cohort.cohort_source_identifier
+2,raw.cohort to std.cohort,std,cohort,cohort_source_identifier,VALUE,2,,,cohort.cohort_source_identifier
+2,raw.cohort to std.cohort,std,cohort,cohort_source_value,VALUE,3,,,cohort.cohort_source_value
+2,raw.cohort to std.cohort,std,cohort,cohort_start_date,VALUE,4,,,case when cohort.cohort_start_date ~'^[0-9]{4}(-)[0-9]{2}(-)[0-9]{2}.*$' then cohort.cohort_start_date::date else null end
+2,raw.cohort to std.cohort,std,cohort,cohort_end_date,VALUE,5,,,case when cohort.cohort_end_date ~'^[0-9]{4}(-)[0-9]{2}(-)[0-9]{2}.*$' then cohort.cohort_end_date::date else null end
+2,raw.cohort to std.cohort,std,cohort,subject_source_identifier,VALUE,6,,,cohort.subject_source_identifier
+2,raw.cohort to std.cohort,std,cohort,stop_reason,VALUE,7,,,cohort.stop_reason
+2,raw.cohort to std.cohort,std,cohort,x_data_source_type,VALUE,8,,,cohort.x_data_source_type
+3,raw.condition_occurrence to std.condition_occurrence,std,condition_occurrence,condition_occurrence_source_identifier,PRIMARY,1,raw,condition_occurrence,condition_occurrence.condition_occurrence_source_identifier
+3,raw.condition_occurrence to std.condition_occurrence,std,condition_occurrence,condition_occurrence_source_identifier,VALUE,2,,,condition_occurrence.condition_occurrence_source_identifier
+3,raw.condition_occurrence to std.condition_occurrence,std,condition_occurrence,x_data_source_type,VALUE,3,,,condition_occurrence.x_data_source_type
+3,raw.condition_occurrence to std.condition_occurrence,std,condition_occurrence,person_source_value,VALUE,4,,,condition_occurrence.person_source_value
+3,raw.condition_occurrence to std.condition_occurrence,std,condition_occurrence,condition_source_value,VALUE,5,,,condition_occurrence.condition_source_value
+3,raw.condition_occurrence to std.condition_occurrence,std,condition_occurrence,condition_source_value_vocabulary,VALUE,6,,,condition_occurrence.condition_source_value_vocabulary
+3,raw.condition_occurrence to std.condition_occurrence,std,condition_occurrence,x_condition_source_desc,VALUE,7,,,condition_occurrence.x_condition_source_desc
+3,raw.condition_occurrence to std.condition_occurrence,std,condition_occurrence,condition_start_date,VALUE,8,,,case when condition_occurrence.condition_start_date ~'^[0-9]{4}(-)[0-9]{2}(-)[0-9]{2}.*$' then condition_occurrence.condition_start_date::date else null end
+3,raw.condition_occurrence to std.condition_occurrence,std,condition_occurrence,x_condition_update_date,VALUE,9,,,case when condition_occurrence.x_condition_update_date ~'^[0-9]{4}(-)[0-9]{2}(-)[0-9]{2}.*$' then condition_occurrence.x_condition_update_date::date else null end
+3,raw.condition_occurrence to std.condition_occurrence,std,condition_occurrence,condition_end_date,VALUE,10,,,case when condition_occurrence.condition_end_date ~'^[0-9]{4}(-)[0-9]{2}(-)[0-9]{2}.*$' then condition_occurrence.condition_end_date::date else null end
+3,raw.condition_occurrence to std.condition_occurrence,std,condition_occurrence,condition_type_source_value,VALUE,11,,,condition_occurrence.condition_type_source_value
+3,raw.condition_occurrence to std.condition_occurrence,std,condition_occurrence,stop_reason,VALUE,12,,,condition_occurrence.stop_reason
+3,raw.condition_occurrence to std.condition_occurrence,std,condition_occurrence,associated_provider_source_value,VALUE,13,,,condition_occurrence.associated_provider_source_value
+3,raw.condition_occurrence to std.condition_occurrence,std,condition_occurrence,x_visit_occurrence_source_identifier,VALUE,14,,,condition_occurrence.x_visit_occurrence_source_identifier
+4,raw.death to std.death,std,death,person_source_value,PRIMARY,1,raw,death,death.person_source_value
+4,raw.death to std.death,std,death,person_source_value,VALUE,2,raw,death,death.person_source_value
+4,raw.death to std.death,std,death,x_data_source_type,VALUE,3,,,death.x_data_source_type
+4,raw.death to std.death,std,death,death_date,VALUE,4,,,case when death.death_date ~'^[0-9]{4}(-)[0-9]{2}(-)[0-9]{2}.*$' then death.death_date::date else null end
+4,raw.death to std.death,std,death,death_type_source_value,VALUE,5,,,death.death_type_source_value
+4,raw.death to std.death,std,death,cause_of_death_source_value,VALUE,6,,,death.cause_of_death_source_value
+5,raw.drug_cost to std.drug_cost,std,drug_cost,drug_cost_source_identifier,PRIMARY,1,raw,drug_cost,drug_cost.drug_cost_source_identifier
+5,raw.drug_cost to std.drug_cost,std,drug_cost,drug_cost_source_identifier,VALUE,2,raw,drug_cost,drug_cost.drug_cost_source_identifier
+5,raw.drug_cost to std.drug_cost,std,drug_cost,drug_exposure_source_identifier,VALUE,3,,,drug_cost.drug_exposure_source_identifier
+5,raw.drug_cost to std.drug_cost,std,drug_cost,paid_copay,VALUE,4,,,"case when drug_cost.paid_copay ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then drug_cost.paid_copay::numeric else null end"
+5,raw.drug_cost to std.drug_cost,std,drug_cost,paid_coinsurance,VALUE,5,,,"case when drug_cost.paid_coinsurance ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then drug_cost.paid_coinsurance::numeric else null end"
+5,raw.drug_cost to std.drug_cost,std,drug_cost,paid_toward_deductible,VALUE,6,,,"case when drug_cost.paid_toward_deductible ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then drug_cost.paid_toward_deductible::numeric else null end"
+5,raw.drug_cost to std.drug_cost,std,drug_cost,paid_by_payer,VALUE,7,,,"case when drug_cost.paid_by_payer ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then drug_cost.paid_by_payer::numeric else null end"
+5,raw.drug_cost to std.drug_cost,std,drug_cost,paid_by_coordination_benefits,VALUE,8,,,"case when drug_cost.paid_by_coordination_benefits ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then drug_cost.paid_by_coordination_benefits::numeric else null end"
+5,raw.drug_cost to std.drug_cost,std,drug_cost,total_out_of_pocket,VALUE,9,,,"case when drug_cost.total_out_of_pocket ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then drug_cost.total_out_of_pocket::numeric else null end"
+5,raw.drug_cost to std.drug_cost,std,drug_cost,total_paid,VALUE,10,,,"case when drug_cost.total_paid ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then drug_cost.total_paid::numeric else null end"
+5,raw.drug_cost to std.drug_cost,std,drug_cost,ingredient_cost,VALUE,11,,,"case when drug_cost.ingredient_cost ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then drug_cost.ingredient_cost::numeric else null end"
+5,raw.drug_cost to std.drug_cost,std,drug_cost,dispensing_fee,VALUE,12,,,"case when drug_cost.dispensing_fee ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then drug_cost.dispensing_fee::numeric else null end"
+5,raw.drug_cost to std.drug_cost,std,drug_cost,average_wholesale_price,VALUE,13,,,"case when drug_cost.average_wholesale_price ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then drug_cost.average_wholesale_price::numeric else null end"
+5,raw.drug_cost to std.drug_cost,std,drug_cost,payer_plan_period_source_identifier,VALUE,14,,,drug_cost.payer_plan_period_source_identifier
+5,raw.drug_cost to std.drug_cost,std,drug_cost,x_data_source_type,VALUE,15,,,drug_cost.x_data_source_type
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,drug_exposure_source_identifier,PRIMARY,1,raw,drug_exposure,drug_exposure.drug_exposure_source_identifier
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,drug_exposure_source_identifier,VALUE,2,,,drug_exposure.drug_exposure_source_identifier
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,x_data_source_type,VALUE,3,,,drug_exposure.x_data_source_type
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,person_source_value,VALUE,4,,,drug_exposure.person_source_value
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,drug_source_value,VALUE,5,,,drug_exposure.drug_source_value
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,drug_source_value_vocabulary,VALUE,6,,,drug_exposure.drug_source_value_vocabulary
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,drug_exposure_start_date,VALUE,7,,,case when drug_exposure.drug_exposure_start_date ~'^[0-9]{4}(-)[0-9]{2}(-)[0-9]{2}.*$' then drug_exposure.drug_exposure_start_date::date else null end
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,drug_exposure_end_date,VALUE,8,,,case when drug_exposure.drug_exposure_end_date ~'^[0-9]{4}(-)[0-9]{2}(-)[0-9]{2}.*$' then drug_exposure.drug_exposure_end_date::date else null end
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,drug_type_source_value,VALUE,9,,,drug_exposure.drug_type_source_value
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,stop_reason,VALUE,10,,,drug_exposure.stop_reason
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,refills,VALUE,11,,,"case when drug_exposure.refills ~'^(-)?[0-9]{1,4}$' then drug_exposure.refills::numeric else null end"
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,quantity,VALUE,12,,,"case when drug_exposure.quantity ~'^(-)?[0-9]{1,8}$' then drug_exposure.quantity::numeric else null end"
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,days_supply,VALUE,13,,,"case when drug_exposure.days_supply ~'^(-)?[0-9]{1,4}$' then drug_exposure.days_supply::numeric else null end"
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,x_drug_name,VALUE,14,,,drug_exposure.x_drug_name
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,x_drug_strength,VALUE,15,,,drug_exposure.x_drug_strength
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,sig,VALUE,16,,,drug_exposure.sig
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,provider_source_value,VALUE,17,,,drug_exposure.provider_source_value
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,x_visit_occurrence_source_identifier,VALUE,18,,,drug_exposure.x_visit_occurrence_source_identifier
+6,raw.drug_exposure to std.drug_exposure,std,drug_exposure,relevant_condition_source_value,VALUE,19,,,drug_exposure.relevant_condition_source_value
+7,raw.observation to std.observation,std,observation,observation_source_identifier,PRIMARY,1,raw,observation,observation.observation_source_identifier
+7,raw.observation to std.observation,std,observation,observation_source_identifier,VALUE,2,,,observation.observation_source_identifier
+7,raw.observation to std.observation,std,observation,x_data_source_type,VALUE,3,,,observation.x_data_source_type
+7,raw.observation to std.observation,std,observation,person_source_value,VALUE,4,,,observation.person_source_value
+7,raw.observation to std.observation,std,observation,observation_source_value,VALUE,5,,,observation.observation_source_value
+7,raw.observation to std.observation,std,observation,observation_source_value_vocabulary,VALUE,6,,,observation.observation_source_value_vocabulary
+7,raw.observation to std.observation,std,observation,observation_date,VALUE,7,,,case when observation.observation_date ~'^[0-9]{4}(-)[0-9]{2}(-)[0-9]{2}.*$' then observation.observation_date::date else null end
+7,raw.observation to std.observation,std,observation,observation_time,VALUE,8,,,"case when observation.observation_time ~'^[0-9]{4}(-)[0-9]{2}(-)[0-9]{2}.{1}[0-9]{2}:[0-9]{2}:[0-9]{2}.*$' then substring(observation.observation_time, 12, 8)::time when observation.observation_time ~'^[0-9]{2}:[0-9]{2}:[0-9]{2}.*$' then observation.observation_time::time else null end"
+7,raw.observation to std.observation,std,observation,value_as_number,VALUE,9,,,"case when observation.value_as_number ~'^(-)?[0-9]{1,11}(\.?[0-9]+)$' then observation.value_as_number::numeric else null end"
+7,raw.observation to std.observation,std,observation,value_as_string,VALUE,10,,,observation.value_as_string
+7,raw.observation to std.observation,std,observation,unit_source_value,VALUE,11,,,observation.unit_source_value
+7,raw.observation to std.observation,std,observation,range_low,VALUE,12,,,"case when observation.range_low ~'^(-)?[0-9]{1,11}(\.?[0-9]+)$' then observation.range_low::numeric else null end"
+7,raw.observation to std.observation,std,observation,range_high,VALUE,13,,,"case when observation.range_high ~'^(-)?[0-9]{1,11}(\.?[0-9]+)$' then observation.range_high::numeric else null end"
+7,raw.observation to std.observation,std,observation,observation_type_source_value,VALUE,14,,,observation.observation_type_source_value
+7,raw.observation to std.observation,std,observation,associated_provider_source_value,VALUE,15,,,observation.associated_provider_source_value
+7,raw.observation to std.observation,std,observation,x_visit_occurrence_source_identifier,VALUE,16,,,observation.x_visit_occurrence_source_identifier
+7,raw.observation to std.observation,std,observation,relevant_condition_source_value,VALUE,17,,,observation.relevant_condition_source_value
+7,raw.observation to std.observation,std,observation,x_obs_comment,VALUE,18,,,observation.x_obs_comment
+8,raw.organization to std.organization,std,organization,organization_source_value,PRIMARY,1,raw,organization,organization.organization_source_value
+8,raw.organization to std.organization,std,organization,organization_source_value,VALUE,2,,,organization.organization_source_value
+8,raw.organization to std.organization,std,organization,x_data_source_type,VALUE,3,,,organization.x_data_source_type
+8,raw.organization to std.organization,std,organization,place_of_service_source_value,VALUE,4,,,organization.place_of_service_source_value
+8,raw.organization to std.organization,std,organization,organization_address_1,VALUE,5,,,organization.organization_address_1
+8,raw.organization to std.organization,std,organization,organization_address_2,VALUE,6,,,organization.organization_address_2
+8,raw.organization to std.organization,std,organization,organization_city,VALUE,7,,,organization.organization_city
+8,raw.organization to std.organization,std,organization,organization_state,VALUE,8,,,organization.organization_state
+8,raw.organization to std.organization,std,organization,organization_zip,VALUE,9,,,organization.organization_zip
+8,raw.organization to std.organization,std,organization,organization_county,VALUE,10,,,organization.organization_county
+9,raw.payer_plan_period to std.payer_plan_period,std,payer_plan_period,payer_plan_period_source_identifier,PRIMARY,1,raw,payer_plan_period,payer_plan_period.payer_plan_period_source_identifier
+9,raw.payer_plan_period to std.payer_plan_period,std,payer_plan_period,payer_plan_period_source_identifier,VALUE,2,,,payer_plan_period.payer_plan_period_source_identifier
+9,raw.payer_plan_period to std.payer_plan_period,std,payer_plan_period,person_source_value,VALUE,3,,,payer_plan_period.person_source_value
+9,raw.payer_plan_period to std.payer_plan_period,std,payer_plan_period,payer_plan_period_start_date,VALUE,4,,,case when payer_plan_period.payer_plan_period_start_date ~'^[0-9]{4}(-)[0-9]{2}(-)[0-9]{2}.*$' then payer_plan_period.payer_plan_period_start_date::date else null end
+9,raw.payer_plan_period to std.payer_plan_period,std,payer_plan_period,payer_plan_period_end_date,VALUE,5,,,case when payer_plan_period.payer_plan_period_end_date ~'^[0-9]{4}(-)[0-9]{2}(-)[0-9]{2}.*$' then payer_plan_period.payer_plan_period_end_date::date else null end
+9,raw.payer_plan_period to std.payer_plan_period,std,payer_plan_period,payer_source_value,VALUE,6,,,payer_plan_period.payer_source_value
+9,raw.payer_plan_period to std.payer_plan_period,std,payer_plan_period,plan_source_value,VALUE,7,,,payer_plan_period.plan_source_value
+9,raw.payer_plan_period to std.payer_plan_period,std,payer_plan_period,family_source_value,VALUE,8,,,payer_plan_period.family_source_value
+9,raw.payer_plan_period to std.payer_plan_period,std,payer_plan_period,x_data_source_type,VALUE,9,,,payer_plan_period.x_data_source_type
+10,raw.procedure_cost to std.procedure_cost,std,procedure_cost,procedure_cost_source_identifier,PRIMARY,1,raw,procedure_cost,procedure_cost.procedure_cost_source_identifier
+10,raw.procedure_cost to std.procedure_cost,std,procedure_cost,procedure_cost_source_identifier,VALUE,2,,,procedure_cost.procedure_cost_source_identifier
+10,raw.procedure_cost to std.procedure_cost,std,procedure_cost,procedure_occurrence_source_identifier,VALUE,3,,,procedure_cost.procedure_occurrence_source_identifier
+10,raw.procedure_cost to std.procedure_cost,std,procedure_cost,paid_copay,VALUE,4,,,"case when procedure_cost.paid_copay ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then procedure_cost.paid_copay::numeric else null end"
+10,raw.procedure_cost to std.procedure_cost,std,procedure_cost,paid_coinsurance,VALUE,5,,,"case when procedure_cost.paid_coinsurance ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then procedure_cost.paid_coinsurance::numeric else null end"
+10,raw.procedure_cost to std.procedure_cost,std,procedure_cost,paid_toward_deductible,VALUE,6,,,"case when procedure_cost.paid_toward_deductible ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then procedure_cost.paid_toward_deductible::numeric else null end"
+10,raw.procedure_cost to std.procedure_cost,std,procedure_cost,paid_by_payer,VALUE,7,,,"case when procedure_cost.paid_by_payer ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then procedure_cost.paid_by_payer::numeric else null end"
+10,raw.procedure_cost to std.procedure_cost,std,procedure_cost,paid_by_coordination_benefits,VALUE,8,,,"case when procedure_cost.paid_by_coordination_benefits ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then procedure_cost.paid_by_coordination_benefits::numeric else null end"
+10,raw.procedure_cost to std.procedure_cost,std,procedure_cost,total_out_of_pocket,VALUE,9,,,"case when procedure_cost.total_out_of_pocket ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then procedure_cost.total_out_of_pocket::numeric else null end"
+10,raw.procedure_cost to std.procedure_cost,std,procedure_cost,total_paid,VALUE,10,,,"case when procedure_cost.total_paid ~'^(-)?[0-9]{1,8}(\.?[0-9]+)$' then procedure_cost.total_paid::numeric else null end"
+10,raw.procedure_cost to std.procedure_cost,std,procedure_cost,disease_class_source_value,VALUE,12,,,procedure_cost.disease_class_source_value
+10,raw.procedure_cost to std.procedure_cost,std,procedure_cost,revenue_code_source_value,VALUE,14,,,procedure_cost.revenue_code_source_value
+10,raw.procedure_cost to std.procedure_cost,std,procedure_cost,payer_plan_period_source_identifier,VALUE,15,,,procedure_cost.payer_plan_period_source_identifier
+10,raw.procedure_cost to std.procedure_cost,std,procedure_cost,x_data_source_type,VALUE,16,,,procedure_cost.x_data_source_type
+11,raw.procedure_occurrence to std.procedure_occurrence,std,procedure_occurrence,procedure_occurrence_source_identifier,PRIMARY,1,raw,procedure_occurrence,procedure_occurrence.procedure_occurrence_source_identifier
+11,raw.procedure_occurrence to std.procedure_occurrence,std,procedure_occurrence,procedure_occurrence_source_identifier,VALUE,2,,,procedure_occurrence.procedure_occurrence_source_identifier
+11,raw.procedure_occurrence to std.procedure_occurrence,std,procedure_occurrence,x_data_source_type,VALUE,3,,,procedure_occurrence.x_data_source_type
+11,raw.procedure_occurrence to std.procedure_occurrence,std,procedure_occurrence,person_source_value,VALUE,4,,,procedure_occurrence.person_source_value
+11,raw.procedure_occurrence to std.procedure_occurrence,std,procedure_occurrence,procedure_source_value,VALUE,5,,,procedure_occurrence.procedure_source_value
+11,raw.procedure_occurrence to std.procedure_occurrence,std,procedure_occurrence,procedure_source_value_vocabulary,VALUE,6,,,procedure_occurrence.procedure_source_value_vocabulary
+11,raw.procedure_occurrence to std.procedure_occurrence,std,procedure_occurrence,procedure_date,VALUE,7,,,case when procedure_occurrence.procedure_date ~'^[0-9]{4}(-)[0-9]{2}(-)[0-9]{2}.*$' then procedure_occurrence.procedure_date::date else null end
+11,raw.procedure_occurrence to std.procedure_occurrence,std,procedure_occurrence,procedure_type_source_value,VALUE,8,,,procedure_occurrence.procedure_type_source_value
+11,raw.procedure_occurrence to std.procedure_occurrence,std,procedure_occurrence,provider_record_source_value,VALUE,9,,,procedure_occurrence.provider_record_source_value
+11,raw.procedure_occurrence to std.procedure_occurrence,std,procedure_occurrence,x_visit_occurrence_source_identifier,VALUE,10,,,procedure_occurrence.x_visit_occurrence_source_identifier
+11,raw.procedure_occurrence to std.procedure_occurrence,std,procedure_occurrence,relevant_condition_source_value,VALUE,11,,,procedure_occurrence.relevant_condition_source_value
+12,raw.provider to std.provider,std,provider,provider_source_value,PRIMARY,1,raw,provider,provider.provider_source_value
+12,raw.provider to std.provider,std,provider,provider_source_value,VALUE,2,,,provider.provider_source_value
+12,raw.provider to std.provider,std,provider,x_data_source_type,VALUE,3,,,provider.x_data_source_type
+12,raw.provider to std.provider,std,provider,npi,VALUE,4,,,provider.npi
+12,raw.provider to std.provider,std,provider,dea,VALUE,5,,,provider.dea
+12,raw.provider to std.provider,std,provider,specialty_source_value,VALUE,6,,,provider.specialty_source_value
+12,raw.provider to std.provider,std,provider,x_provider_first,VALUE,7,,,provider.x_provider_first
+12,raw.provider to std.provider,std,provider,x_provider_middle,VALUE,8,,,provider.x_provider_middle
+12,raw.provider to std.provider,std,provider,x_provider_last,VALUE,9,,,provider.x_provider_last
+12,raw.provider to std.provider,std,provider,care_site_source_value,VALUE,10,,,provider.care_site_source_value
+12,raw.provider to std.provider,std,provider,x_organization_source_value,VALUE,11,,,provider.x_organization_source_value
+13,raw.visit_occurrence to std.visit_occurrence,std,visit_occurrence,x_visit_occurrence_source_identifier,PRIMARY,1,raw,visit_occurrence,visit_occurrence.x_visit_occurrence_source_identifier
+13,raw.visit_occurrence to std.visit_occurrence,std,visit_occurrence,x_visit_occurrence_source_identifier,VALUE,2,,,visit_occurrence.x_visit_occurrence_source_identifier
+13,raw.visit_occurrence to std.visit_occurrence,std,visit_occurrence,x_data_source_type,VALUE,3,,,visit_occurrence.x_data_source_type
+13,raw.visit_occurrence to std.visit_occurrence,std,visit_occurrence,person_source_value,VALUE,4,,,visit_occurrence.person_source_value
+13,raw.visit_occurrence to std.visit_occurrence,std,visit_occurrence,visit_start_date,VALUE,5,,,case when visit_occurrence.visit_start_date ~'^[0-9]{4}(-)[0-9]{2}(-)[0-9]{2}.*$' then visit_occurrence.visit_start_date::date else null end
+13,raw.visit_occurrence to std.visit_occurrence,std,visit_occurrence,visit_end_date,VALUE,6,,,case when visit_occurrence.visit_end_date ~'^[0-9]{4}(-)[0-9]{2}(-)[0-9]{2}.*$' then visit_occurrence.visit_end_date::date else null end
+13,raw.visit_occurrence to std.visit_occurrence,std,visit_occurrence,place_of_service_source_value,VALUE,7,,,visit_occurrence.place_of_service_source_value
+13,raw.visit_occurrence to std.visit_occurrence,std,visit_occurrence,x_provider_source_value,VALUE,8,,,visit_occurrence.x_provider_source_value
+13,raw.visit_occurrence to std.visit_occurrence,std,visit_occurrence,care_site_source_value,VALUE,9,,,visit_occurrence.care_site_source_value
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,person_source_value,PRIMARY,1,raw,x_demographic,x_demographic.person_source_value
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,person_source_value,VALUE,2,,,x_demographic.person_source_value
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,x_data_source_type,VALUE,3,,,x_demographic.x_data_source_type
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,medicaid_id_number,VALUE,4,,,x_demographic.medicaid_id_number
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,ssn,VALUE,5,,,x_demographic.ssn
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,last,VALUE,6,,,x_demographic.last
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,middle,VALUE,7,,,x_demographic.middle
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,first,VALUE,8,,,x_demographic.first
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,address_1,VALUE,9,,,x_demographic.address_1
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,address_2,VALUE,10,,,x_demographic.address_2
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,city,VALUE,11,,,x_demographic.city
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,state,VALUE,12,,,x_demographic.state
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,zip,VALUE,13,,,x_demographic.zip
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,county,VALUE,14,,,x_demographic.county
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,year_of_birth,VALUE,15,,,"case when x_demographic.year_of_birth ~'^(-)?[0-9]{1,4}$' then x_demographic.year_of_birth::numeric else null end"
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,month_of_birth,VALUE,16,,,"case when x_demographic.month_of_birth ~'^(-)?[0-9]{1,2}$' then x_demographic.month_of_birth::numeric else null end"
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,day_of_birth,VALUE,17,,,"case when x_demographic.day_of_birth ~'^(-)?[0-9]{1,2}$' then x_demographic.day_of_birth::numeric else null end"
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,gender_source_value,VALUE,18,,,x_demographic.gender_source_value
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,race_source_value,VALUE,19,,,x_demographic.race_source_value
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,ethnicity_source_value,VALUE,20,,,x_demographic.ethnicity_source_value
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,provider_source_value,VALUE,21,,,x_demographic.provider_source_value
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,care_site_source_value,VALUE,22,,,x_demographic.care_site_source_value
+14,raw.x_demographics to std.x_demograpics,std,x_demographic,x_organization_source_value,VALUE,23,,,x_demographic.x_organization_source_value

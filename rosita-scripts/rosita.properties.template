@@ -1,0 +1,36 @@
+#Grid node ID
+gridnodeid=1
+
+#Number of records to cache before performing a database update (lower is slower, higher uses more memory)
+threshold=10000
+
+#Save validation errors to the CZ - if false, output them to the command line
+saveerrors=true
+
+#Maximum validation errors to tolerate before giving up
+maxerrors=0
+
+#Skip validate table steps
+skipsteps=validatetables
+
+#Folder and file locations
+folder.datasources=/home/rosita/datasources/
+folder.vocabulary=/home/rosita/vocabulary/
+folder.schemas=/usr/share/rosita/schemas/
+folder.etlrules=/usr/share/rosita/rules/etl/
+file.publishrules=/usr/share/rosita/rules/publish/publish-rules.csv
+file.profilerules=/usr/share/rosita/rules/profile/profile-rules.csv
+
+#Database connection for ROSITA - host/port default to localhost, 5432
+#host=localhost
+#port=5432
+database=rosita
+user=rosita
+password=rosita@2012
+
+#Database connection for GRID - host/port default to localhost, 3306
+targethost=<grid_node_hostname>
+targetport=3306
+targetdatabase=saftinet
+targetuser=saftinet
+targetpassword=saftinet+1

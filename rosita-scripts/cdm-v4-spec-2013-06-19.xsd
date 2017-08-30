@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="organization" type="organization"/>
+	<xs:complexType name="organization">
+		<xs:sequence>
+			<xs:element name="organization_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="x_data_source_type" type="string_max20" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="place_of_service_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="organization_address_1" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="organization_address_2" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="organization_city" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="organization_state" type="string_max2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="organization_zip" type="string_max9" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="organization_county" type="string_max20" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="care_site" type="care_site" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="x_demographic" type="x_demographic" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="care_site" type="care_site"/>
+	<xs:complexType name="care_site">
+		<xs:sequence>
+			<xs:element name="care_site_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="x_data_source_type" type="string_max20" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="organization_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="place_of_service_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="x_care_site_name" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="care_site_address_1" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="care_site_address_2" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="care_site_city" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="care_site_state" type="string_max2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="care_site_zip" type="string_max9" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="care_site_county" type="string_max20" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="provider" type="provider" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="provider" type="provider"/>
+	<xs:complexType name="provider">
+		<xs:sequence>
+			<xs:element name="provider_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="x_data_source_type" type="string_max20" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="npi" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="dea" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="specialty_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="x_provider_first" type="string_max75" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="x_provider_middle" type="string_max75" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="x_provider_last" type="string_max75" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="care_site_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="x_organization_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="x_demographic" type="x_demographic"/>
+	<xs:complexType name="x_demographic">
+		<xs:sequence>
+			<xs:element name="person_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="x_data_source_type" type="string_max20" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="medicaid_id_number" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="ssn" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="last" type="string_max75" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="middle" type="string_max75" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="first" type="string_max75" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="address_1" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="address_2" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="city" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="state" type="string_max2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="zip" type="string_max9" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="county" type="string_max20" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="year_of_birth" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="month_of_birth" type="xs:integer" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="day_of_birth" type="xs:integer" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="gender_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="race_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="ethnicity_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="provider_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="care_site_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="x_organization_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="visit_occurrence" type="visit_occurrence" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="observation" type="observation" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="drug_exposure" type="drug_exposure" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="condition_occurrence" type="condition_occurrence" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="procedure_occurrence" type="procedure_occurrence" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="cohort" type="cohort" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="death" type="death" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="payer_plan_period" type="payer_plan_period" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="visit_occurrence" type="visit_occurrence"/>
+	<xs:complexType name="visit_occurrence">
+		<xs:sequence>
+			<xs:element name="x_visit_occurrence_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="x_data_source_type" type="string_max20" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="person_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="visit_start_date" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="visit_end_date" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="place_of_service_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="x_provider_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="care_site_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="observation" type="observation"/>
+	<xs:complexType name="observation">
+		<xs:sequence>
+			<xs:element name="observation_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="x_data_source_type" type="string_max20" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="person_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="observation_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="observation_source_value_vocabulary" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="observation_date" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="observation_time" type="xs:dateTime" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="value_as_number" type="decimal_precision14_scale3" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="value_as_string" type="string_max60" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="unit_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="range_low" type="decimal_precision14_scale3" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="range_high" type="decimal_precision14_scale3" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="observation_type_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="associated_provider_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="x_visit_occurrence_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="relevant_condition_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="x_obs_comment" type="xs:string" minOccurs="1" maxOccurs="1" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="drug_exposure" type="drug_exposure"/>
+	<xs:complexType name="drug_exposure">
+		<xs:sequence>
+			<xs:element name="drug_exposure_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="x_data_source_type" type="string_max20" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="person_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="drug_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="drug_source_value_vocabulary" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="drug_exposure_start_date" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="drug_exposure_end_date" type="xs:date" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="drug_type_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="stop_reason" type="string_max20" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="refills" type="xs:integer" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="quantity" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="days_supply" type="xs:integer" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="x_drug_name" type="string_max255" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="x_drug_strength" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="sig" type="xs:string" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="provider_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="x_visit_occurrence_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="relevant_condition_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="drug_cost" type="drug_cost" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="condition_occurrence" type="condition_occurrence"/>
+	<xs:complexType name="condition_occurrence">
+		<xs:sequence>
+			<xs:element name="condition_occurrence_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="x_data_source_type" type="string_max20" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="person_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="condition_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="condition_source_value_vocabulary" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="x_condition_source_desc" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="condition_start_date" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="x_condition_update_date" type="xs:date" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="condition_end_date" type="xs:date" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="condition_type_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="stop_reason" type="string_max20" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="associated_provider_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="x_visit_occurrence_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="procedure_occurrence" type="procedure_occurrence"/>
+	<xs:complexType name="procedure_occurrence">
+		<xs:sequence>
+			<xs:element name="procedure_occurrence_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="x_data_source_type" type="string_max20" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="person_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="procedure_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="procedure_source_value_vocabulary" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="procedure_date" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="procedure_type_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="provider_record_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="x_visit_occurrence_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="relevant_condition_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="procedure_cost" type="procedure_cost" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="cohort" type="cohort"/>
+	<xs:complexType name="cohort">
+		<xs:sequence>
+			<xs:element name="cohort_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="cohort_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="cohort_start_date" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="cohort_end_date" type="xs:date" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="subject_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="stop_reason" type="string_max20" minOccurs="1" maxOccurs="1" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="death" type="death"/>
+	<xs:complexType name="death">
+		<xs:sequence>
+			<xs:element name="person_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="death_date" type="xs:date" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="death_type_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="cause_of_death_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="decimal_precision14_scale3">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="3"/>
+			<xs:totalDigits value="14"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="decimal_precision8_scale2">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2"/>
+			<xs:totalDigits value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="drug_cost" type="drug_cost"/>
+	<xs:complexType name="drug_cost">
+		<xs:sequence>
+			<xs:element name="drug_cost_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="drug_exposure_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="paid_copay" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="paid_coinsurance" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="paid_toward_deductible" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="paid_by_payer" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="paid_by_coordination_benefits" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="total_out_of_pocket" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="total_paid" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="ingredient_cost" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="dispensing_fee" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="average_wholesale_price" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="payer_plan_period_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="payer_plan_period" type="payer_plan_period"/>
+	<xs:complexType name="payer_plan_period">
+		<xs:sequence>
+			<xs:element name="payer_plan_period_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="person_source_value" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="payer_plan_period_start_date" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="payer_plan_period_end_date" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="payer_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="plan_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="family_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="procedure_cost" type="procedure_cost"/>
+	<xs:complexType name="procedure_cost">
+		<xs:sequence>
+			<xs:element name="procedure_cost_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="procedure_occurrence_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="paid_copay" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="paid_coinsurance" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="paid_toward_deductible" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="paid_by_payer" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="paid_by_coordination_benefits" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="total_out_of_pocket" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="total_paid" type="decimal_precision8_scale2" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="disease_class_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="revenue_code_source_value" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xs:element name="payer_plan_period_source_identifier" type="string_max50" minOccurs="1" maxOccurs="1" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="string_max10">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string_max100">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string_max2">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string_max20">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string_max255">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string_max3">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string_max30">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string_max5">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string_max50">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string_max75">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="75"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string_max9">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string_max500">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="500"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string_max60">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="60"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

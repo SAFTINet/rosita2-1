@@ -1,0 +1,20 @@
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (1, 'Verify Files', 1, 'verifyService', 'running', 2);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (2, 'Validate Source Files', 2, 'validatorService', 'running', 3);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (3, 'Load Raw Tables', 3, 'parserService', 'running', 15);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (4, 'Profile Standard Tables', 4, 'profilerService', 'running', 5);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (5, 'Validate Standard Tables', 5, NULL, 'paused', 6);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (6, 'Export Unmapped Source Values', 6, NULL, 'paused', 7);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (7, 'Import Vocabulary Mappings', 7, 'vocabularyImportService', 'paused', 16);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (8, 'Process to OMOP', 8, 'processorService', 'running', 9);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (9, 'Profile OMOP Tables', 9, 'omopProfilerService', 'running', 10);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (10, 'Validate OMOP Tables', 10, NULL, 'paused', 11);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (11, 'Publish to GRID', 11, 'publisherService', 'running', 12);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (12, 'Backup Persistent Data', 12, 'backupService', 'paused', 13);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (13, 'Complete', 13, 'workflowCompleteService', 'running', NULL);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (14, 'Load Standard Tables', 14, 'loadStandardService', 'running', 4);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (15, 'Load ETL Rules', 15, 'loadEtlRulesService', 'running', 14);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (16, 'Perform Data Linkage', 16, 'dataLinkageService', 'running', 8);
+
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (17, 'Import OMOP Vocabulary', 17, 'loadOmopVocabularyService', 'running', 0);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (18, 'Import Profile Rules', 18, 'loadOscarService', 'running', 0);
+INSERT INTO cz.step_description (step_description_id, description, step_number, handler, initial_state, next_step_description_id) VALUES (19, 'Import Publish Rules', 19, 'loadPublishRulesService', 'running', 0);

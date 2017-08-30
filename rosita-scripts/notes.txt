@@ -1,0 +1,13 @@
+To run the scripts:
+
+- Set up database connection properties in parser.properties
+
+verifyfiles [file]
+validatexml [file]
+loadxml [file]
+profilesource
+(loadvocabulary [file])
+processomop
+profileomop
+publish
+

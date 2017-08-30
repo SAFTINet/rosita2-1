@@ -1,0 +1,80 @@
+1.Create new database - 
+
+	CREATE DATABASE `saftinet`;
+
+
+
+2. CREATE Person TABLE - 
+
+	CREATE TABLE `saftinet`.`person` (
+	  `person_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	  `gender_concept_id` INTEGER UNSIGNED NOT NULL,
+	  `year_of_birth` INT(4) UNSIGNED NOT NULL,
+	  `month_of_birth` INT(2) UNSIGNED,
+	  `day_of_birth` INT(2) UNSIGNED,
+	  `race_concept_id` INTEGER UNSIGNED NOT NULL,
+	  `ethnicity_concept_id` INTEGER UNSIGNED NOT NULL,
+	  `location_id` INTEGER UNSIGNED NOT NULL,
+	  `provider_id` INTEGER UNSIGNED,
+	  `care_site_id` INTEGER UNSIGNED,
+	  `person_source_value` VARCHAR(50),
+	  `gender_source_value` VARCHAR(50),
+	  `race_source_value` VARCHAR(50),
+	  `ethnicity_source_value` VARCHAR(50),
+	  `x_organization_id` INTEGER UNSIGNED NOT NULL,
+	  `x_grid_node_id` INTEGER UNSIGNED NOT NULL,
+	  `x_data_source_id` VARCHAR(45) NOT NULL,
+	  PRIMARY KEY (`person_id`)
+	)
+	ENGINE = InnoDB;
+
+
+
+3.CREATE x_cohort_metadata TABLE - 
+
+	CREATE TABLE `saftinet`.`x_cohort_metadata` (
+	  `cohort_metadata_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	  `cohort_name` VARCHAR(50) NOT NULL,
+	  `cohort_description` VARCHAR(200),
+	  `cohort_creator_name` VARCHAR(50),
+	  `cohort_creator_contact` VARCHAR(200),
+	  `is_cohort_shared` BOOLEAN,
+	  `cohort_query` TEXT,
+	  `service_url` VARCHAR(100),
+	  `original_cohort_count` INTEGER UNSIGNED,
+	  `last_cohort_count` INTEGER UNSIGNED,
+	  `original_cohort_date` DATETIME,
+	  `last_cohort_date` DATETIME,
+	  `cohort_phi_notes` TEXT,
+	  `cohort_other_notes` TEXT,
+	  `cohort_expiration_date` DATETIME,
+	  `x_grid_node_id` INT(10) UNSIGNED NOT NULL,
+	  PRIMARY KEY (`cohort_metadata_id`, `x_grid_node_id`)
+	)
+	ENGINE = InnoDB;
+
+
+
+4.CREATE cohort TABLE - 
+
+	CREATE TABLE `saftinet`.`cohort` (
+	  `cohort_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	  `x_data_source` VARCHAR(20) NOT NULL,
+	  `cohort_concept_id` INTEGER UNSIGNED NOT NULL,
+	  `cohort_start_date` DATETIME NOT NULL,
+	  `cohort_end_date` DATETIME,
+	  `person_id` INT(10) UNSIGNED NOT NULL,
+	  `stop_reason` VARCHAR(20),
+	  `x_cohort_metadata_id` INT(10) UNSIGNED NOT NULL,
+	  `x_grid_node_id` INT(10) UNSIGNED NOT NULL,
+	  PRIMARY KEY (`cohort_id`, `x_grid_node_id`),
+	  CONSTRAINT `person_id` FOREIGN KEY `person_id` (`person_id`)
+		REFERENCES `person` (`person_id`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+	  CONSTRAINT `x_cohort_metadata_id` FOREIGN KEY `x_cohort_metadata_id` (`x_cohort_metadata_id`, `x_grid_node_id`)
+		REFERENCES `x_cohort_metadata` (`cohort_metadata_id`, `x_grid_node_id`)
+		ON DELETE RESTRICT
+		ON UPDATE RESTRICT
+	)
+	ENGINE = InnoDB;
